@@ -2,7 +2,7 @@
 
 namespace NLogic
 {
-    public class Class1
+    public class NLogic
     {
     }
 }

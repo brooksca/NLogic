@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogic", "NLogic\NLogic.csproj", "{BBC8DF00-73B8-4F5E-9BD6-7C58FA7087EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLogic", "NLogic\NLogic.csproj", "{BBC8DF00-73B8-4F5E-9BD6-7C58FA7087EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogic.Test", "NLogic.Test\NLogic.Test.csproj", "{2593C289-AFAF-4895-B8E7-9BDA3BD13264}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BBC8DF00-73B8-4F5E-9BD6-7C58FA7087EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBC8DF00-73B8-4F5E-9BD6-7C58FA7087EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBC8DF00-73B8-4F5E-9BD6-7C58FA7087EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2593C289-AFAF-4895-B8E7-9BDA3BD13264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2593C289-AFAF-4895-B8E7-9BDA3BD13264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2593C289-AFAF-4895-B8E7-9BDA3BD13264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2593C289-AFAF-4895-B8E7-9BDA3BD13264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
