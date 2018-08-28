@@ -11,14 +11,6 @@ namespace NLogic.Elements
 {
     public class NSubject : INSubject
     {
-        #region Properties
-
-        public string Path { get; }
-
-        public Type SubjectType { get; }
-
-        #endregion Properties
-
         #region Constructors
 
         public NSubject(string path, Type subjectType)
@@ -28,6 +20,14 @@ namespace NLogic.Elements
         }
 
         #endregion Constructors
+
+        #region Properties
+
+        public string Path { get; }
+
+        public Type SubjectType { get; }
+
+        #endregion Properties
 
         #region Methods
 
@@ -49,7 +49,7 @@ namespace NLogic.Elements
             try
             {
                 var path = subjectObject["Path"].ToString();
-                var type = Type.GetType(subjectObject["SubjectType"].ToString());
+                var type = Type.GetType(subjectObject["Type"].ToString());
 
                 return new NSubject(path, type);
             }
@@ -77,7 +77,7 @@ namespace NLogic.Elements
             try
             {
                 var path = subjectObject["Path"].ToString();
-                var type = Type.GetType(subjectObject["SubjectType"].ToString());
+                var type = Type.GetType(subjectObject["Type"].ToString());
 
                 return new NSubject(path, type);
             }

@@ -1,0 +1,23 @@
+{
+  "Conditions": [
+    {
+      "Operator": {
+        "Name": "Equal"
+      },
+      "Subject": {
+        "Path": "Name",
+        "Type": "System.String"
+      },
+      "Reference": {
+        "Value": "Test",
+        "Type": "System.String"
+      }
+    }
+  ],
+  "Actions": [
+    {
+      "Name": "TestAction",
+      "Description": "Clean test action"
+    }
+  ]
+}

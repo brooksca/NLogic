@@ -15,13 +15,5 @@ namespace NLogic.Definitions.Infrastructure
         IEnumerable<INRuleset> Rulesets { get; }
 
         #endregion Properties
-
-        #region Methods
-
-        Task<INDefinition> Parse(string jsonDefinition);
-
-        Task Serialize(INSerializer Serializer);
-
-        #endregion Methods
     }
 }

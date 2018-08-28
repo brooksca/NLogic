@@ -6,5 +6,8 @@ namespace NLogic.Ruleset
 {
     public enum Union
     {
+        And,
+        Or,
+        None
     }
 }

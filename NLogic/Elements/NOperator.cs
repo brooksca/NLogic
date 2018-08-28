@@ -13,6 +13,28 @@ namespace NLogic.Elements
 {
     public class NOperator : INOperator
     {
+        #region Fields
+
+        public static INOperator Equal = new NOperator(
+            "Equal",
+            new string[]{
+                "=",
+                "==",
+                "===",
+                "eq",
+                "equals"
+            },
+            new Type[] {
+                typeof(string),
+                typeof(short),
+                typeof(int),
+                typeof(long),
+                typeof(bool),
+                typeof(char)
+            });
+
+        #endregion Fields
+
         #region Constructors
 
         private NOperator(string name, string[] symbols, Type[] validTypes)
@@ -116,16 +138,14 @@ namespace NLogic.Elements
             // Taken from https://stackoverflow.com/a/10261848
             var constants = typeof(NOperator).GetFields(
                 BindingFlags.Public
-                | BindingFlags.Static
-                | BindingFlags.FlattenHierarchy)
+                | BindingFlags.Static)
                 .Where(constant =>
-                    constant.IsLiteral
-                    && !constant.IsInitOnly)
+                    !constant.IsInitOnly)
                 .ToList();
 
             foreach (var constant in constants)
             {
-                var nOperator = (INOperator)constant.GetRawConstantValue();
+                var nOperator = (INOperator)constant.GetValue(null);
 
                 if (nOperator.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                     return nOperator;
@@ -161,27 +181,5 @@ namespace NLogic.Elements
         }
 
         #endregion Methods
-
-        #region Fields
-
-        public static INOperator Equal = new NOperator(
-            "Equals",
-            new string[]{
-                "=",
-                "==",
-                "===",
-                "eq",
-                "equals"
-            },
-            new Type[] {
-                typeof(string),
-                typeof(short),
-                typeof(int),
-                typeof(long),
-                typeof(bool),
-                typeof(char)
-            });
-
-        #endregion Fields
     }
 }

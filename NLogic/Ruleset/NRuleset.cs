@@ -28,6 +28,11 @@ namespace NLogic.Ruleset
 
         public IEnumerable<INRule> Rules { get; }
 
+        public static Task ParseAsync(object rulesetRaw)
+        {
+            throw new NotImplementedException();
+        }
+
         public Union Union { get; }
 
         #endregion Properties

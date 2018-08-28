@@ -33,12 +33,12 @@ namespace NLogic.Definitions
 
         #region Methods
 
-        public async Task<INDefinition> Parse(string jsonDefinition)
+        public static INDefinition Parse(string jsonDefinition)
         {
             try
             {
                 var rawDefinition = JObject.Parse(jsonDefinition);
-                return await Parse(rawDefinition);
+                return Parse(rawDefinition);
             }
             catch (JsonReaderException ex)
             {
@@ -46,7 +46,7 @@ namespace NLogic.Definitions
             }
         }
 
-        public async Task<INDefinition> Parse(JObject jsonObjectDefinition)
+        public static INDefinition Parse(JObject jsonObjectDefinition)
         {
             try
             {
@@ -61,7 +61,35 @@ namespace NLogic.Definitions
             }
         }
 
-        public Task Serialize(INSerializer Serializer)
+        public static async Task<INDefinition> ParseAsync(string jsonDefinition)
+        {
+            try
+            {
+                var rawDefinition = JObject.Parse(jsonDefinition);
+                return await ParseAsync(rawDefinition);
+            }
+            catch (JsonReaderException ex)
+            {
+                throw new NDefinitionParseException(ex);
+            }
+        }
+
+        public static async Task<INDefinition> ParseAsync(JObject jsonObjectDefinition)
+        {
+            try
+            {
+                var rulesetsObject = jsonObjectDefinition["Definition"];
+                var rulesetsRaw = JArray.Parse(rulesetsObject["Rulesets"].ToString());
+                var rulesets = rulesetsRaw.Select(ruleset => NRuleset.Parse(ruleset.ToString()));
+                return new NDefinition(rulesets);
+            }
+            catch (JsonReaderException ex)
+            {
+                throw new NDefinitionParseException(ex);
+            }
+        }
+
+        public static Task Serialize(INSerializer Serializer)
         {
             throw new NotImplementedException();
         }
