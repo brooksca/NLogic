@@ -13,31 +13,9 @@ namespace NLogic.Elements
 {
     public class NOperator : INOperator
     {
-        #region Fields
-
-        public static INOperator Equal = new NOperator(
-            "Equal",
-            new string[]{
-                "=",
-                "==",
-                "===",
-                "eq",
-                "equals"
-            },
-            new Type[] {
-                typeof(string),
-                typeof(short),
-                typeof(int),
-                typeof(long),
-                typeof(bool),
-                typeof(char)
-            });
-
-        #endregion Fields
-
         #region Constructors
 
-        private NOperator(string name, string[] symbols, Type[] validTypes)
+        internal NOperator(string name, string[] symbols, Type[] validTypes)
         {
             Name = name;
             Symbols = symbols;
@@ -48,6 +26,7 @@ namespace NLogic.Elements
 
         #region Properties
 
+        // TODO: Add a property that has a list of possible names to catch misspellings
         public string Name { get; }
 
         public string[] Symbols { get; }
@@ -136,7 +115,7 @@ namespace NLogic.Elements
         {
             // Get all the constant properties of the NOperator class so that each can be iterated
             // Taken from https://stackoverflow.com/a/10261848
-            var constants = typeof(NOperator).GetFields(
+            var constants = typeof(NOperators).GetFields(
                 BindingFlags.Public
                 | BindingFlags.Static)
                 .Where(constant =>
@@ -159,7 +138,7 @@ namespace NLogic.Elements
         {
             // Get all the constant properties of the NOperator class so that each can be iterated
             // Taken from https://stackoverflow.com/a/10261848
-            var constants = typeof(NOperator).GetFields(
+            var constants = typeof(NOperators).GetFields(
                 BindingFlags.Public
                 | BindingFlags.Static
                 | BindingFlags.FlattenHierarchy)
